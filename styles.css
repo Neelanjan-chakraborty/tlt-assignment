@@ -1,0 +1,756 @@
+/* ===== RESET AND BASE STYLES ===== */
+/* Universal reset to ensure consistent rendering across browsers */
+/* Removes default margins, padding, and sets box-sizing to border-box */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Includes padding and border in element's total width/height */
+}
+
+/* ===== BODY AND CONTAINER STYLES ===== */
+/* Base typography and layout settings for the entire page */
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #ffffff; /* White background for the page */
+    min-height: 100vh; /* Ensures body takes at least full viewport height */
+    color: #ffffff; /* Default text color (white) - mainly for form content */
+}
+
+/* Main container: Centers content and limits maximum width for desktop */
+.container {
+    max-width: 1280px; /* Maximum width for desktop layout */
+    margin: 0 auto; /* Centers the container horizontally */
+    min-height: 100vh; /* Full viewport height */
+}
+
+/* ===== HEADER STYLES ===== */
+/* Top navigation bar containing logos and user information */
+/* Uses flexbox for horizontal alignment and responsive behavior */
+
+.header {
+    display: flex;
+    justify-content: space-between; /* Spreads header content to edges */
+    align-items: center; /* Vertically centers header content */
+    padding: 16px; /* Consistent padding around header */
+    background: #ffffff; /* White background for header */
+}
+
+/* Left section of header: Contains company logo */
+.header-left {
+    display: flex;
+    align-items: center;
+}
+
+/* TLT Logo styling */
+.logo-image {
+    height: 63px; /* Fixed height as per design specification */
+    width: auto; /* Maintains aspect ratio */
+}
+
+/* Right section of header: Contains user info and partner logo */
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 48px; /* Space between user info and partner logo */
+}
+
+/* User information container */
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 12px; /* Space between avatar and name/menu elements */
+}
+
+/* User profile picture container */
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%; /* Creates circular avatar */
+    overflow: hidden; /* Ensures image fits within circle */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* User avatar image styling */
+.user-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Maintains aspect ratio while filling container */
+}
+
+/* User name and dropdown container */
+.user-dropdown {
+    display: flex;
+    align-items: center;
+    gap: 4px; /* Small gap between name and dropdown arrow */
+    padding: 8px;
+    border-radius: 8px;
+    cursor: pointer; /* Indicates clickable element */
+}
+
+/* User name text styling */
+.user-name {
+    font-weight: 500; /* Medium font weight */
+    font-size: 14px;
+    color: #000000; /* Black text for contrast on white header */
+}
+
+/* Dropdown arrow icon */
+.dropdown-icon {
+    width: 20px;
+    height: 20px;
+}
+
+/* Partner/Moonshot logo container */
+.moonshot-logo {
+    width: 56px;
+    height: 63px; /* Matches main logo height */
+}
+
+.moonshot-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Preserves aspect ratio without cropping */
+}
+
+/* ===== MOBILE HAMBURGER MENU ===== */
+/* Navigation menu button visible only on mobile devices */
+/* Hidden on desktop, shown on mobile via media queries */
+
+.hamburger-menu {
+    display: none; /* Hidden by default (desktop) */
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.hamburger-menu img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* ===== MAIN CONTENT AREA ===== */
+/* Container for the entire form section with dark background */
+/* Uses flexbox to create full-height layout */
+
+.main-content {
+    padding: 0; /* No padding to allow form to extend edge-to-edge */
+    background: #ffffff; /* White background (not visible due to form overlay) */
+    min-height: calc(100vh - 95px); /* Full height minus header height */
+}
+
+/* Form section wrapper */
+.form-section {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch; /* Form content stretches to full width */
+    gap: 0; /* No gap to ensure seamless background */
+    min-height: calc(100vh - 95px); /* Full remaining height after header */
+    background: #ffffff; /* Background color (covered by form content) */
+}
+
+/* Main form content container with dark theme */
+.form-content {
+    background: #2B414F; /* Dark blue-gray background color */
+    border-radius: 8px 8px 0px 0px; /* Rounded top corners only */
+    padding: 24px; /* Consistent internal spacing */
+    display: flex;
+    flex-direction: column;
+    gap: 24px; /* Space between form sections */
+    flex: 1; /* Takes up remaining space */
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25); /* Subtle shadow for depth */
+    min-height: 100%; /* Ensures full height coverage */
+}
+
+/* ===== FORM HEADER AND TITLE ===== */
+/* Styling for the main page title section */
+
+.form-header {
+    display: flex;
+    flex-direction: column;
+    gap: 12px; /* Space between header elements */
+}
+
+/* Main page title styling */
+.form-title {
+    font-size: 24px;
+    font-weight: 600; /* Semi-bold weight */
+    color: #ffffff; /* White text on dark background */
+    line-height: 1.33; /* Comfortable line spacing */
+}
+
+/* ===== FORM LAYOUT AND STRUCTURE ===== */
+/* Main form container and section organization */
+
+/* Profile form container - uses flexbox for vertical layout */
+.profile-form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px; /* Consistent spacing between form sections */
+    flex: 1; /* Takes remaining available space */
+}
+
+/* Individual form sections (Name, Contact, Role, etc.) */
+.form-section-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px; /* Space between label and form fields */
+}
+
+/* Section labels (e.g., "Your Name", "Contact Details") */
+.section-label {
+    font-size: 14px;
+    font-weight: 600; /* Bold section headers */
+    color: #C6B98B; /* Gold/yellow accent color for section labels */
+    line-height: 1.43;
+}
+
+/* Field labels (e.g., "Role", "Specialty Type") */
+.field-label {
+    font-size: 14px;
+    font-weight: 400; /* Normal weight for field labels */
+    color: #CDDBE4; /* Light blue-gray for field labels */
+    line-height: 1.43;
+    margin-bottom: 6px; /* Small gap between label and input */
+}
+
+/* Horizontal arrangement of form fields */
+.form-row {
+    display: flex;
+    gap: 24px; /* Space between side-by-side form fields */
+}
+
+/* Individual form field containers */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    flex: 1; /* Equal width distribution in rows */
+}
+
+/* ===== INPUT FIELD STYLING ===== */
+/* Base styling for text inputs and select elements */
+
+.form-group input,
+.form-group select {
+    padding: 8px; /* Internal spacing for text */
+    border: 1px solid #999999; /* Gray border */
+    border-radius: 8px; /* Rounded corners */
+    background: #2B414F; /* Dark background matching form */
+    color: #cddbe4; /* Light text color for readability */
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.43;
+    outline: none; /* Removes default browser outline */
+}
+
+/* Placeholder text styling */
+.form-group input::placeholder {
+    color: #999999; /* Gray placeholder text */
+}
+
+/* ===== SELECT WRAPPER STYLING ===== */
+/* Container for native select elements with custom arrow */
+
+.select-wrapper {
+    position: relative; /* Allows absolute positioning of arrow icon */
+    display: flex;
+    align-items: center;
+}
+
+/* Native select element styling */
+.select-wrapper select {
+    width: 100%;
+    appearance: none; /* Removes default browser arrow */
+    padding-right: 32px; /* Space for custom arrow icon */
+}
+
+/* Custom arrow icon for select elements */
+.select-icon {
+    position: absolute;
+    right: 8px; /* Positioned from right edge */
+    width: 16px;
+    height: 16px;
+    pointer-events: none; /* Allows clicks to pass through to select */
+}
+
+/* ===== CUSTOM DROPDOWN COMPONENTS ===== */
+/* Styled dropdown alternatives to native select elements */
+/* Provides better visual control and consistency across browsers */
+
+/* Wrapper container for custom dropdown */
+.custom-dropdown-wrapper {
+    position: relative; /* Enables absolute positioning for dropdown options */
+    width: 100%;
+}
+
+/* Main dropdown container */
+.custom-dropdown {
+    position: relative;
+    width: 100%;
+}
+
+/* Dropdown display area - shows selected value and arrow */
+.dropdown-selected {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Separates text and arrow */
+    padding: 8px;
+    border: 1px solid #999999;
+    border-radius: 8px;
+    background: #2B414F; /* Matches other form inputs */
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.43;
+    cursor: pointer; /* Indicates clickable element */
+    transition: all 0.3s ease; /* Smooth hover effects */
+}
+
+/* Hover effect for dropdown selector */
+.dropdown-selected:hover {
+    border-color: #CDDBE4; /* Lighter border on hover */
+}
+
+/* Dropdown arrow icon */
+.dropdown-arrow {
+    width: 16px;
+    height: 16px;
+    transition: transform 0.3s ease; /* Smooth rotation animation */
+}
+
+/* Arrow rotation when dropdown is open */
+.custom-dropdown.open .dropdown-arrow {
+    transform: rotate(180deg); /* Flips arrow to indicate open state */
+}
+
+/* ===== DROPDOWN OPTIONS CONTAINER ===== */
+/* Styling for the dropdown options list that appears when opened */
+
+.dropdown-options {
+    position: absolute; /* Positioned relative to dropdown container */
+    top: 100%; /* Appears below the dropdown selector */
+    left: 0;
+    right: 0;
+    background: #2B414F; /* Matches dropdown selector background */
+    border: 1px solid rgba(223, 228, 234, 0.2); /* Subtle border */
+    border-radius: 8px;
+    box-shadow: -1px 21px 45px 0px rgba(0, 0, 0, 0.25); /* Drop shadow for depth */
+    z-index: 1000; /* High z-index to appear above other elements */
+    max-height: 356px; /* Limits height to prevent excessive scrolling */
+    overflow-y: auto; /* Enables scrolling for long lists */
+    display: none; /* Hidden by default */
+    margin-top: 4px; /* Small gap between selector and options */
+}
+
+/* Show dropdown options when open class is applied */
+.custom-dropdown.open .dropdown-options {
+    display: block;
+}
+
+/* ===== DROPDOWN OPTION GROUPS ===== */
+/* Styling for grouped dropdown options (e.g., Specialist vs Others) */
+
+.dropdown-group {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Separator line between option groups */
+.dropdown-group:not(:last-child) {
+    border-bottom: 1px solid #466A81; /* Darker border for group separation */
+}
+
+/* Group header styling (e.g., "Specialist", "Others") */
+.dropdown-header {
+    padding: 8px 16px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700; /* Bold headers */
+    font-size: 12px;
+    line-height: 1.5;
+    color: #8E8F8F; /* Muted gray for headers */
+    background: #2B414F;
+    cursor: default; /* Not clickable */
+}
+
+/* Individual dropdown option styling */
+.dropdown-option {
+    padding: 8px 16px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.43;
+    color: #ffffff; /* White text for options */
+    cursor: pointer;
+    transition: background-color 0.2s ease; /* Smooth hover transitions */
+}
+
+/* Hover effects for dropdown options */
+.dropdown-option:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Light overlay on hover */
+}
+
+/* Active/pressed state for dropdown options */
+.dropdown-option:active {
+    background-color: rgba(255, 255, 255, 0.15); /* Slightly more opaque when pressed */
+}
+
+/* ===== SPECIALTY DROPDOWN SPECIFIC STYLES ===== */
+/* Custom height constraints for the specialty type dropdown */
+
+.specialty-options {
+    max-height: 149px; /* Specific height from Figma design for specialty dropdown */
+}
+
+/* Individual specialty option styling */
+.specialty-options .dropdown-option {
+    padding: 8px 16px;
+    border: none; /* No individual borders for specialty options */
+}
+
+/* Remove borders between specialty options */
+.specialty-options .dropdown-option:not(:last-child) {
+    border-bottom: none;
+}
+
+/* ===== LOCATION FIELDS LAYOUT ===== */
+/* Special layout for country and state selection dropdowns */
+
+.location-fields {
+    display: flex;
+    flex-direction: row; /* Horizontal layout on desktop */
+    gap: 12px; /* Space between country and state dropdowns */
+}
+
+/* Each location field takes equal width */
+.location-fields .form-row {
+    flex: 1; /* Equal distribution of space */
+}
+
+/* Explicit flex settings for first location field (country) */
+.location-fields .form-row:first-child {
+    flex: 1;
+}
+
+/* Explicit flex settings for second location field (state) */
+.location-fields .form-row:last-child {
+    flex: 1;
+}
+
+/* ===== CUSTOM CHECKBOX STYLING ===== */
+/* Custom styled checkbox to match design system */
+/* Replaces default browser checkbox with custom appearance */
+
+/* Checkbox container */
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Space between elements */
+}
+
+/* Checkbox label container */
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer; /* Entire label area is clickable */
+    font-size: 14px;
+    font-weight: 400;
+    color: #ffffff; /* White text to match form styling */
+    line-height: 1.43;
+}
+
+/* Hide the native checkbox input */
+.checkbox-label input[type="checkbox"] {
+    display: none; /* Completely hidden, replaced by custom styling */
+}
+
+/* Custom checkbox appearance */
+.checkmark {
+    width: 16px;
+    height: 16px;
+    border: 1px solid #999999; /* Gray border matching other inputs */
+    border-radius: 4px; /* Slightly rounded corners */
+    margin-right: 8px; /* Space between checkbox and text */
+    position: relative; /* Allows absolute positioning of checkmark */
+    background: #2B414F; /* Dark background matching form */
+    flex-shrink: 0; /* Prevents checkbox from shrinking */
+}
+
+/* Checked state styling */
+.checkbox-label input[type="checkbox"]:checked + .checkmark {
+    background: #295BFF; /* Blue background when checked */
+    border-color: #295BFF; /* Blue border when checked */
+}
+
+/* Checkmark symbol */
+.checkbox-label input[type="checkbox"]:checked + .checkmark::after {
+    content: "✓"; /* Unicode checkmark character */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centers the checkmark */
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* ===== ACTION BUTTONS ===== */
+/* Styling for Cancel and Submit buttons at bottom of form */
+
+/* Button container - positions buttons at bottom right */
+.form-actions {
+    display: flex;
+    gap: 12px; /* Space between Cancel and Submit buttons */
+    justify-content: flex-end; /* Aligns buttons to the right */
+    align-items: center;
+    margin-top: auto; /* Pushes buttons to bottom of form */
+}
+
+/* Base button styling shared by both Cancel and Submit */
+.btn {
+    padding: 8px 48px; /* Horizontal padding creates button width */
+    border-radius: 8px; /* Rounded corners */
+    font-size: 14px;
+    font-weight: 500; /* Medium weight for button text */
+    cursor: pointer;
+    line-height: 1.43;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px; /* Space for potential icons */
+}
+
+/* Cancel button - secondary button styling */
+.btn-cancel {
+    background: #2B414F; /* Dark background matching form */
+    color: #ffffff; /* White text */
+    border: 1px solid #ffffff; /* White border for contrast */
+}
+
+/* Cancel button hover effect */
+.btn-cancel:hover {
+    background: rgba(43, 65, 79, 0.8); /* Slightly transparent on hover */
+}
+
+/* Submit button - primary button styling */
+.btn-submit {
+    background: #295BFF; /* Blue primary color */
+    color: #ffffff; /* White text */
+    border: 1px solid #295BFF; /* Blue border matching background */
+}
+
+/* Submit button hover effect */
+.btn-submit:hover {
+    background: rgba(41, 91, 255, 0.9); /* Slightly darker blue on hover */
+}
+
+/* ===== MOBILE RESPONSIVE STYLES ===== */
+/* Tablet and mobile device adaptations (768px and below) */
+/* Transforms desktop layout into mobile-friendly single column */
+
+@media (max-width: 768px) {
+    /* ===== HEADER MOBILE ADJUSTMENTS ===== */
+    .header {
+        padding: 16px; /* Consistent padding */
+        gap: 4px; /* Reduced gap for mobile */
+    }
+
+    .header-right {
+        gap: 16px; /* Smaller gap between header elements */
+    }
+
+    /* Hide desktop elements on mobile for cleaner interface */
+    .moonshot-logo,
+    .user-dropdown {
+        display: none; /* Partner logo and user name hidden on mobile */
+    }
+
+    /* Show hamburger menu on mobile devices */
+    .hamburger-menu {
+        display: block; /* Visible on mobile */
+    }
+
+    /* Update user info layout for mobile */
+    .header-right .user-info {
+        gap: 16px;
+    }
+
+    /* ===== MAIN CONTENT MOBILE ADJUSTMENTS ===== */
+    .main-content {
+        padding: 0; /* No padding on mobile for full-width appearance */
+    }
+
+    .form-section {
+        height: auto; /* Auto height instead of fixed */
+        min-height: calc(100vh - 95px); /* Account for header height */
+    }
+
+    .form-content {
+        margin: 0;
+        border-radius: 8px 8px 0px 0px; /* Maintain top rounded corners */
+        padding: 24px; /* Consistent internal padding */
+        min-height: calc(100vh - 95px); /* Full remaining height */
+    }
+
+    .form-title {
+        font-size: 24px; /* Maintain title size on mobile */
+        color: #ffffff;
+    }
+
+    /* ===== FORM LAYOUT MOBILE CHANGES ===== */
+    /* Stack form fields vertically on mobile for better usability */
+    .form-row {
+        flex-direction: column; /* Vertical stacking */
+        gap: 24px; /* Consistent vertical spacing */
+    }
+
+    /* Stack location fields vertically on mobile */
+    .location-fields {
+        flex-direction: column; /* Country and state stacked vertically */
+        gap: 12px;
+    }
+
+    .location-fields .form-row {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    /* ===== BUTTON LAYOUT MOBILE CHANGES ===== */
+    /* Full width buttons on mobile for easier touch interaction */
+    .form-actions {
+        flex-direction: row; /* Keep horizontal layout */
+        gap: 12px;
+        justify-content: stretch; /* Buttons take full width */
+    }
+
+    .btn {
+        flex: 1; /* Equal width distribution */
+        padding: 8px 24px; /* Reduced horizontal padding */
+    }
+
+    /* Maintain consistent logo and avatar sizes */
+    .logo-image {
+        height: 63px;
+    }
+
+    .user-avatar {
+        width: 40px;
+        height: 40px;
+    }
+
+    /* ===== DROPDOWN MOBILE ADJUSTMENTS ===== */
+    /* Adjust dropdown heights for mobile screens */
+    .dropdown-options {
+        max-height: 280px; /* Larger max height for mobile */
+    }
+
+    .specialty-options {
+        max-height: 149px; /* Maintain specialty dropdown height */
+    }
+}
+
+/* ===== EXTRA SMALL MOBILE DEVICES ===== */
+/* Additional optimizations for very small screens (480px and below) */
+/* Ensures usability on older or smaller mobile devices */
+
+@media (max-width: 480px) {
+    /* ===== HEADER ADJUSTMENTS FOR SMALL SCREENS ===== */
+    .header {
+        padding: 16px; /* Maintain padding */
+    }
+
+    /* ===== FORM CONTENT ADJUSTMENTS ===== */
+    .form-content {
+        padding: 24px; /* Consistent padding */
+    }
+
+    .form-title {
+        font-size: 24px; /* Maintain readable title size */
+    }
+
+    /* ===== TYPOGRAPHY CONSISTENCY ===== */
+    /* Ensure all text remains readable on small screens */
+    .section-label,
+    .field-label,
+    .form-group input,
+    .form-group select,
+    .btn {
+        font-size: 14px; /* Consistent font size */
+    }
+
+    /* ===== BUTTON LAYOUT FOR SMALL SCREENS ===== */
+    /* Stack buttons vertically on very small screens for easier interaction */
+    .form-actions {
+        flex-direction: column; /* Vertical button stacking */
+        gap: 12px;
+    }
+
+    .btn {
+        width: 100%; /* Full width buttons */
+        padding: 8px 48px; /* Adequate touch target size */
+    }
+
+    /* ===== DROPDOWN SIZE ADJUSTMENTS ===== */
+    /* Smaller dropdown heights for very small screens */
+    .dropdown-options {
+        max-height: 240px; /* Reduced height to fit smaller screens */
+    }
+
+    .specialty-options {
+        max-height: 120px; /* Smaller specialty dropdown */
+    }
+}
+
+/* ===== ACCESSIBILITY AND INTERACTION STATES ===== */
+/* Focus states and interactive feedback for keyboard navigation and screen readers */
+
+/* Focus states for form inputs and dropdowns */
+.form-group input:focus,
+.form-group select:focus,
+.dropdown-selected:focus {
+    border-color: #295BFF; /* Blue border to indicate focus */
+    box-shadow: 0 0 0 2px rgba(41, 91, 255, 0.2); /* Blue glow effect */
+}
+
+/* Focus state for buttons */
+.btn:focus {
+    outline: 2px solid #295BFF; /* Blue outline for keyboard navigation */
+    outline-offset: 2px; /* Offset to ensure visibility */
+}
+
+/* ===== SMOOTH TRANSITIONS ===== */
+/* Global smooth transitions for better user experience */
+* {
+    transition: all 0.3s ease; /* Smooth transitions for all interactive elements */
+}
+
+/* ===== LOADING AND DISABLED STATES ===== */
+/* Styling for disabled form elements */
+
+.btn:disabled {
+    opacity: 0.6; /* Reduced opacity for disabled state */
+    cursor: not-allowed; /* Indicates non-interactive state */
+}
+
+/* ===== SCROLLBAR STYLING ===== */
+/* Custom scrollbar appearance for dropdown options */
+/* Provides consistent styling across browsers */
+
+.dropdown-options::-webkit-scrollbar {
+    width: 6px; /* Thin scrollbar width */
+}
+
+.dropdown-options::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1); /* Subtle track background */
+    border-radius: 3px;
+}
+
+.dropdown-options::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3); /* Semi-transparent thumb */
+    border-radius: 3px;
+}
+
+.dropdown-options::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.5); /* Brighter on hover */
+}

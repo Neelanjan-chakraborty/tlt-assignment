@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Basic meta tags for proper document structure and mobile responsiveness -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Your Profile - TLT</title>
+    
+    <!-- External stylesheets: Custom styles and Google Fonts -->
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Main container: Centers content and sets max-width for desktop -->
+    <div class="container">
+        <!-- ===== HEADER SECTION ===== -->
+        <!-- Top navigation bar containing logos and user information -->
+        <header class="header">
+            <!-- Left side of header: Company logo -->
+            <div class="header-left">
+                <div class="logo">
+                    <img src="images/tlt-logo.png" alt="TLT Logo" class="logo-image">
+                </div>
+            </div>
+            
+            <!-- Right side of header: User info and partner logo -->
+            <div class="header-right">
+                <!-- User information section with avatar and dropdown -->
+                <div class="user-info">
+                    <!-- User profile picture -->
+                    <div class="user-avatar">
+                        <img src="images/user-avatar.png" alt="User Avatar">
+                    </div>
+                    
+                    <!-- User name with dropdown indicator (visible on desktop only) -->
+                    <div class="user-dropdown">
+                        <span class="user-name">Dr. John Doe</span>
+                        <img src="images/chevron-down.svg" alt="Dropdown" class="dropdown-icon">
+                    </div>
+                    
+                    <!-- Mobile hamburger menu (visible on mobile only) -->
+                    <div class="hamburger-menu">
+                        <img src="images/hamburger-menu.svg" alt="Menu">
+                    </div>
+                </div>
+                
+                <!-- Partner/company logo (hidden on mobile) -->
+                <div class="moonshot-logo">
+                    <img src="images/moonshot-logo.png" alt="Moonshot Logo">
+                </div>
+            </div>
+        </header>
+
+        <!-- ===== MAIN CONTENT AREA ===== -->
+        <!-- Contains the entire form section with dark background -->
+        <main class="main-content">
+            <div class="form-section">
+                <div class="form-content">
+                    <!-- ===== FORM HEADER ===== -->
+                    <!-- Page title section -->
+                    <div class="form-header">
+                        <h1 class="form-title">Create Your Profile</h1>
+                    </div>
+
+                    <!-- ===== PROFILE FORM ===== -->
+                    <!-- Main form containing all user input fields -->
+                    <form class="profile-form">
+                        <!-- ===== NAME SECTION ===== -->
+                        <!-- First and Last name input fields arranged horizontally on desktop, vertically on mobile -->
+                        <div class="form-section-group">
+                            <label class="section-label">Your Name</label>
+                            <div class="form-row">
+                                <!-- First name input field -->
+                                <div class="form-group">
+                                    <input type="text" id="firstName" name="firstName" placeholder="First Name">
+                                </div>
+                                <!-- Last name input field -->
+                                <div class="form-group">
+                                    <input type="text" id="lastName" name="lastName" placeholder="Last Name">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ===== CONTACT DETAILS SECTION ===== -->
+                        <!-- Email and mobile number input fields -->
+                        <div class="form-section-group">
+                            <label class="section-label">Contact Details</label>
+                            <div class="form-row">
+                                <!-- Email input with email validation -->
+                                <div class="form-group">
+                                    <input type="email" id="email" name="email" placeholder="Email">
+                                </div>
+                                <!-- Mobile number input with tel type for mobile keyboards -->
+                                <div class="form-group">
+                                    <input type="tel" id="mobile" name="mobile" placeholder="Mobile No">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ===== ROLE SELECTION SECTION ===== -->
+                        <!-- Custom dropdown components for role and specialty selection -->
+                        <div class="form-section-group">
+                            <label class="section-label">Select Primary Role:</label>
+                            <div class="form-row">
+                                <!-- ===== ROLE DROPDOWN ===== -->
+                                <!-- Custom dropdown for selecting user's primary role -->
+                                <div class="form-group">
+                                    <label class="field-label">Role</label>
+                                    <div class="custom-dropdown-wrapper">
+                                        <!-- Custom dropdown container with click functionality -->
+                                        <div class="custom-dropdown" id="roleDropdown">
+                                            <!-- Dropdown display area showing selected value -->
+                                            <div class="dropdown-selected" id="roleSelected">
+                                                <span>Specialist (Partner)</span>
+                                                <img src="images/chevron-down-role.svg" alt="Dropdown" class="dropdown-arrow">
+                                            </div>
+                                            <!-- Dropdown options list (hidden by default) -->
+                                            <div class="dropdown-options" id="roleOptions">
+                                                <!-- Specialist roles group -->
+                                                <div class="dropdown-group">
+                                                    <div class="dropdown-header">Specialist</div>
+                                                    <div class="dropdown-option" data-value="owner">Owner</div>
+                                                    <div class="dropdown-option" data-value="partner">Partner</div>
+                                                    <div class="dropdown-option" data-value="associate">Associate</div>
+                                                </div>
+                                                <!-- Other roles group -->
+                                                <div class="dropdown-group">
+                                                    <div class="dropdown-header">Others</div>
+                                                    <div class="dropdown-option" data-value="hygienist">Hygienist</div>
+                                                    <div class="dropdown-option" data-value="practice-success-director">Practice Success Director</div>
+                                                    <div class="dropdown-option" data-value="strategic-growth-partner">Strategic Growth Partner</div>
+                                                    <div class="dropdown-option" data-value="treatment-consultant">Treatment Consultant</div>
+                                                    <div class="dropdown-option" data-value="custom-role">Custom Role</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Hidden native select for form submission and accessibility -->
+                                        <select id="role" name="role" style="display: none;">
+                                            <option value="partner">Specialist (Partner)</option>
+                                            <option value="owner">Specialist (Owner)</option>
+                                            <option value="associate">Specialist (Associate)</option>
+                                            <option value="hygienist">Hygienist</option>
+                                            <option value="practice-success-director">Practice Success Director</option>
+                                            <option value="strategic-growth-partner">Strategic Growth Partner</option>
+                                            <option value="treatment-consultant">Treatment Consultant</option>
+                                            <option value="custom-role">Custom Role</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <!-- ===== SPECIALTY TYPE DROPDOWN ===== -->
+                                <!-- Custom dropdown for selecting medical specialty -->
+                                <div class="form-group">
+                                    <label class="field-label">Specialty Type</label>
+                                    <div class="custom-dropdown-wrapper">
+                                        <!-- Specialty dropdown container -->
+                                        <div class="custom-dropdown" id="specialtyDropdown">
+                                            <!-- Dropdown display area -->
+                                            <div class="dropdown-selected" id="specialtySelected">
+                                                <span>Select</span>
+                                                <img src="images/chevron-down-specialty.svg" alt="Dropdown" class="dropdown-arrow">
+                                            </div>
+                                            <!-- Specialty options list -->
+                                            <div class="dropdown-options specialty-options" id="specialtyOptions">
+                                                <div class="dropdown-option" data-value="periodontist">Periodontist</div>
+                                                <div class="dropdown-option" data-value="endodontist">Endodontist</div>
+                                                <div class="dropdown-option" data-value="oral-surgeon">Oral Surgeon</div>
+                                                <div class="dropdown-option" data-value="prosthodontist">Prosthodontist</div>
+                                            </div>
+                                        </div>
+                                        <!-- Hidden native select for form submission -->
+                                        <select id="specialty" name="specialty" style="display: none;">
+                                            <option value="">Select</option>
+                                            <option value="periodontist">Periodontist</option>
+                                            <option value="endodontist">Endodontist</option>
+                                            <option value="oral-surgeon">Oral Surgeon</option>
+                                            <option value="prosthodontist">Prosthodontist</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ===== PRODUCER CHECKBOX SECTION ===== -->
+                        <!-- Custom styled checkbox for producer status -->
+                        <div class="form-section-group">
+                            <div class="checkbox-group">
+                                <label class="checkbox-label">
+                                    <!-- Hidden native checkbox input -->
+                                    <input type="checkbox" id="isProducer" name="isProducer">
+                                    <!-- Custom styled checkmark -->
+                                    <span class="checkmark"></span>
+                                    Is this user a producer?
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- ===== LOCATION SELECTION SECTION ===== -->
+                        <!-- Country and state dropdown selectors -->
+                        <div class="form-section-group">
+                            <label class="section-label">Select Location</label>
+                            <div class="location-fields">
+                                <!-- Country selection dropdown -->
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <div class="select-wrapper">
+                                            <!-- Native select element for country -->
+                                            <select id="country" name="country">
+                                                <option value="">Select</option>
+                                                <option value="us">United States</option>
+                                                <option value="uk">United Kingdom</option>
+                                                <option value="ca">Canada</option>
+                                                <option value="au">Australia</option>
+                                                <option value="in">India</option>
+                                            </select>
+                                            <!-- Custom dropdown arrow icon -->
+                                            <img src="images/chevron-down-country.svg" alt="Dropdown" class="select-icon">
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- State/Province selection dropdown -->
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <div class="select-wrapper">
+                                            <!-- Native select element for state -->
+                                            <select id="state" name="state">
+                                                <option value="">Select</option>
+                                                <option value="ca">California</option>
+                                                <option value="ny">New York</option>
+                                                <option value="tx">Texas</option>
+                                                <option value="fl">Florida</option>
+                                                <option value="il">Illinois</option>
+                                            </select>
+                                            <!-- Custom dropdown arrow icon -->
+                                            <img src="images/chevron-down-state.svg" alt="Dropdown" class="select-icon">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ===== ACTION BUTTONS SECTION ===== -->
+                        <!-- Form submission and cancellation buttons -->
+                        <div class="form-actions">
+                            <!-- Cancel button - resets form or navigates away -->
+                            <button type="button" class="btn btn-cancel">Cancel</button>
+                            <!-- Submit button - submits the form data -->
+                            <button type="submit" class="btn btn-submit">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- ===== JAVASCRIPT FUNCTIONALITY ===== -->
+    <!-- Custom dropdown behavior and form interactions -->
+    <script>
+        // ===== CUSTOM DROPDOWN FUNCTIONALITY =====
+        // Provides interactive behavior for custom styled dropdown components
+        // This replaces default browser dropdown styling while maintaining accessibility
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            // ===== ROLE DROPDOWN SETUP =====
+            // Get all necessary DOM elements for the role dropdown
+            const roleDropdown = document.getElementById('roleDropdown');
+            const roleSelected = document.getElementById('roleSelected');
+            const roleOptions = document.getElementById('roleOptions');
+            const hiddenRoleSelect = document.getElementById('role');
+            const roleDropdownOptions = roleOptions.querySelectorAll('.dropdown-option');
+
+            // ===== SPECIALTY DROPDOWN SETUP =====
+            // Get all necessary DOM elements for the specialty dropdown
+            const specialtyDropdown = document.getElementById('specialtyDropdown');
+            const specialtySelected = document.getElementById('specialtySelected');
+            const specialtyOptionsContainer = document.getElementById('specialtyOptions');
+            const hiddenSpecialtySelect = document.getElementById('specialty');
+            const specialtyDropdownOptions = specialtyOptionsContainer.querySelectorAll('.dropdown-option');
+
+            // ===== ROLE DROPDOWN FUNCTIONALITY =====
+            // Handle click events to show/hide role dropdown options
+            roleSelected.addEventListener('click', function() {
+                roleDropdown.classList.toggle('open');
+                // Close specialty dropdown if open (ensures only one dropdown open at a time)
+                specialtyDropdown.classList.remove('open');
+            });
+
+            // ===== ROLE OPTION SELECTION =====
+            // Handle selection of role options and update display/hidden values
+            roleDropdownOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    const value = this.getAttribute('data-value');
+                    const text = this.textContent;
+                    const group = this.closest('.dropdown-group').querySelector('.dropdown-header').textContent;
+                    
+                    // Update displayed text with proper formatting
+                    // Specialist roles show as "Specialist (Role)", others show just the role name
+                    if (group === 'Specialist') {
+                        roleSelected.querySelector('span').textContent = `${group} (${text})`;
+                    } else {
+                        roleSelected.querySelector('span').textContent = text;
+                    }
+                    
+                    // Update hidden select element for form submission
+                    hiddenRoleSelect.value = value;
+                    
+                    // Close dropdown after selection
+                    roleDropdown.classList.remove('open');
+                });
+            });
+
+            // ===== SPECIALTY DROPDOWN FUNCTIONALITY =====
+            // Handle click events to show/hide specialty dropdown options
+            specialtySelected.addEventListener('click', function() {
+                specialtyDropdown.classList.toggle('open');
+                // Close role dropdown if open (ensures only one dropdown open at a time)
+                roleDropdown.classList.remove('open');
+            });
+
+            // ===== SPECIALTY OPTION SELECTION =====
+            // Handle selection of specialty options and update display/hidden values
+            specialtyDropdownOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    const value = this.getAttribute('data-value');
+                    const text = this.textContent;
+                    
+                    // Update displayed text
+                    specialtySelected.querySelector('span').textContent = text;
+                    
+                    // Update hidden select element for form submission
+                    hiddenSpecialtySelect.value = value;
+                    
+                    // Close dropdown after selection
+                    specialtyDropdown.classList.remove('open');
+                });
+            });
+
+            // ===== OUTSIDE CLICK HANDLING =====
+            // Close dropdowns when user clicks outside of them
+            // This provides intuitive UX behavior expected in modern web applications
+            document.addEventListener('click', function(e) {
+                // Close role dropdown if click is outside of it
+                if (!roleDropdown.contains(e.target)) {
+                    roleDropdown.classList.remove('open');
+                }
+                // Close specialty dropdown if click is outside of it
+                if (!specialtyDropdown.contains(e.target)) {
+                    specialtyDropdown.classList.remove('open');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
